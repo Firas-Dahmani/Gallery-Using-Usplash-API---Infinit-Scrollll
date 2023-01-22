@@ -1,5 +1,5 @@
 // settings up the Unsplash API
-const apiKey = "888pFXi1v3kQuwx4hATXAK8_9njVx6WgCIigqQgIWbU"
+const apiKey = "2IM-jqPNHREytZ4fZavb3qjw9g-UikdyHu-yVUvBKR0"
 const count = 10
 const apiUrl = `https://api.unsplash.com/photos/random?count=${count}&client_id=${apiKey}`
 
@@ -10,6 +10,7 @@ let totalImages = 0
 
 const galleryContainer = document.querySelector('#box')
 const err = document.querySelector('#error')
+const loading = document.getElementById("loading");
 
 // Check if the images loaded equals the total number of images to display more images
 function imageLaded (){
@@ -47,6 +48,7 @@ function displayImage() {
         item.appendChild(imageElement)
         galleryContainer.appendChild(item)
     })
+    loading.classList.remove('show');
 }
 
 // get photos from Unsplash API
@@ -65,7 +67,13 @@ getPhotos() // get photos
 // check to see if scrolling is near the bottom of the page , load more photos
 window.addEventListener('scroll', () => {
     if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 && ready) {
-        getPhotos()
-        ready = false
+        showLoading();
     }
 })
+
+// loading animation
+function showLoading() {
+    loading.classList.add('show');
+    getPhotos()
+    ready = false
+}
