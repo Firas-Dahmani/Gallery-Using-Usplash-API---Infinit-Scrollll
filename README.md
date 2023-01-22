@@ -19,4 +19,4 @@ Fetch images from the Unsplash API and create an infinity effect. Everytime when
 ## Resources:
 - [Loading.io](https://loading.io/)
 - [Google Font](https://fonts.google.com/)
-- [Unsplash]{https://unsplash.com/documentation}
+- [Unsplash](https://unsplash.com/documentation)
